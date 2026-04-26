@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+}
+
+/* header */
+.landing__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    background-color: black;
+}
+
+.landing__header img {
+    height: 40px;
+}
+
+.landing__header p {
+    color: white;
+    font-style: italic;
+}
+
+/* landing page body (before login) */
+.landing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.landing p {
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+.landing p span {
+    color: #1db954
+}
+
+.landing button {
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #1db954;
+    color: black;
+    border-style: none;
+    cursor: pointer;
+}
+
+/* landing footer */
+.landing__footer {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    padding: 60px;
+}
+
+.landing__footer p {
+    color: white;
+}
