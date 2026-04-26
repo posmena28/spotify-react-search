@@ -37,7 +37,7 @@ export default function ResultCard({ item }) {
                     {item.name}
                 </p>
                 <p style={{
-                    margin: '2px 0 0', fontSize: 12, color: '#666',
+                    margin: '2px 0 0', fontSize: 12,
                     whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', color: 'white'
                 }}>
                     {artist}

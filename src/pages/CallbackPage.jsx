@@ -25,7 +25,7 @@ export default function CallbackPage() {
     } else {
       console.log('No code found in URL');
     }
-  }, []);
+  }, [navigate]);
 
   return <p>Logging you in...</p>;
 }
