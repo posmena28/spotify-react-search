@@ -90,12 +90,36 @@ export function isTokenExpired() {
     // if no expiry saved, assume valid rather than booting the user out
     if (!expiry) return false;
 
-    return Date.now() > parseInt(expiry);
+    return Date.now() > parseInt(expiry) - 60000;
 }
 
 // clears all auth data - useful for logout or after expiry
 export function logout() {
     localStorage.removeItem('access_token');
     localStorage.removeItem('token_expiry');
+    localStorage.removeItem('refresh_token');
     localStorage.removeItem('code_verifier');
+    localStorage.removeItem('is_guest');
+}
+
+// Guest Login functionality
+
+export async function guestLogin() {
+  const res = await fetch('/api/spotify-token');
+
+  if (!res.ok) throw new Error('Failed to reach token endpoint');
+
+  const data = await res.json();
+
+  if (!data_access_token) throw new Error('Failed to get guest token');
+
+  localStorage.setItem('access_token', data.access_token);
+  localStorage.setItem('token_expiry', Date.now() + 3600 * 1000);
+  localStorage.setItem('is_guest', 'true');
+  // guests do NOT have a refresh token -- new guest token is fetched upon expiration
+  localStorage.removeItem('refresh_token');
+}
+
+export function isGuest() {
+  return localStorage.getItem('is_guest') === 'true';
 }

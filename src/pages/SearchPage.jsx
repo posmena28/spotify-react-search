@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { searchSpotify } from "../api/spotify";
-import { loginWithSpotify, getToken } from "../auth";
+import { loginWithSpotify, guestLogin, getToken } from "../auth";
 import ResultCard from "../components/ResultCard";
 import './SearchPage.css'
 import spotifyLogo from '../assets/spotifyPNG.png'
@@ -42,7 +42,18 @@ export default function SearchPage() {
                 </div>
                 <div className="landing">
                     <p>Connect to <span>Spotify</span> to start searching.</p>
-                    <button onClick={loginWithSpotify}>Login with Spotify</button>
+                    <button className="login__btn" onClick={loginWithSpotify}>Login with Spotify</button>
+                    <button
+                        className="guest__login--btn"
+                        onClick={async () => {
+                            try {
+                                await guestLogin();
+                                // force re-render by reloading
+                                window.location.reload();
+                            } catch (err) {
+                                alert('Guest login failed. Try again.');
+                            }
+                        }}>Continue as Guest</button>
                 </div>
                 <div className="landing__footer">
                     <p>© Spotify 2026</p>
