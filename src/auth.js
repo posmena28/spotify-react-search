@@ -111,7 +111,7 @@ export async function guestLogin() {
 
   const data = await res.json();
 
-  if (!data_access_token) throw new Error('Failed to get guest token');
+  if (!data.access_token) throw new Error('Failed to get guest token');
 
   localStorage.setItem('access_token', data.access_token);
   localStorage.setItem('token_expiry', Date.now() + 3600 * 1000);
