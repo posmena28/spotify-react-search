@@ -3,8 +3,6 @@ import { searchSpotify } from "../api/spotify";
 import { loginWithSpotify, guestLogin, getToken } from "../auth";
 import ResultCard from "../components/ResultCard";
 import './SearchPage.css'
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 export default function SearchPage() {
     const [query, setQuery] = useState('');
@@ -37,7 +35,6 @@ export default function SearchPage() {
     if (!isLoggedIn) {
         return (
             <div className="landing-page">
-                <Navbar />
                 <div className="landing">
                     <p>Connect to <span>Spotify</span> to start searching.</p>
                     <button className="login__btn" onClick={loginWithSpotify}>Login with Spotify</button>
@@ -53,16 +50,14 @@ export default function SearchPage() {
                             }
                         }}>Continue as Guest</button>
                 </div>
-                <Footer />
             </div>
         );
     }
 
     return (
-        <div style={{ minHeight: '80vh', margin: '0 auto', padding: '2rem 1rem' }}>
+        <div>
 
             {/* Search Bar */}
-            <Navbar />
             <form onSubmit={handleSearch} style={{ display: 'flex', gap: 8, marginBottom: '2rem' }}>
                 <input 
                     value={query}
@@ -101,7 +96,6 @@ export default function SearchPage() {
                     ))}
                 </div>
             )}
-            <Footer />
         </div>
     );
 }

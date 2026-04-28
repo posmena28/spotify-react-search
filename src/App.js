@@ -3,6 +3,7 @@ import SearchPage from './pages/SearchPage';
 import CallbackPage from "./pages/CallbackPage";
 import AlbumPage from './pages/AlbumPage';
 import ErrorBoundary from "./components/ErrorBoundary";
+import Layout from "./components/Layout";
 
 function App() {
   return (
@@ -10,9 +11,14 @@ function App() {
       <Router>
         <div className="App">
           <Routes>
-            <Route path="/" element={<SearchPage />} />
             <Route path="/callback" element={<CallbackPage />} />
-            <Route path="/album/:id" element={<AlbumPage />} />
+            
+            <Route path="/" element={
+              <Layout><SearchPage /></Layout>
+            } />
+            <Route path="/album/:id" element={
+              <Layout><AlbumPage /></Layout>
+            } />
           </Routes>
         </div>
       </Router>

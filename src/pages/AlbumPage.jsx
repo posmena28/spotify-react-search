@@ -1,8 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { fetchAlbum } from "../api/spotify";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 export default function AlbumPage() {
     const { id }                = useParams();
@@ -50,8 +48,7 @@ export default function AlbumPage() {
 
     // --- Main render ---
     return (
-        <div style={{ minHeight: '80vh', margin: '0 auto', padding: '2rem 1rem' }}>
-            <Navbar />
+        <div>
 
             {/* Back Button */}
             <button
@@ -129,7 +126,6 @@ export default function AlbumPage() {
                     </div>
                 ))}
             </div>
-            <Footer />
         </div>
     );
 }
