@@ -59,7 +59,7 @@ export default function SearchPage() {
     }
 
     return (
-        <div style={{ maxWidth: 720, margin: '0 auto', padding: '2rem 1rem' }}>
+        <div style={{ minHeight: '80vh', margin: '0 auto', padding: '2rem 1rem' }}>
 
             {/* Search Bar */}
             <Navbar />
