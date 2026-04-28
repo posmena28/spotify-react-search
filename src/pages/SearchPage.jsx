@@ -3,7 +3,8 @@ import { searchSpotify } from "../api/spotify";
 import { loginWithSpotify, guestLogin, getToken } from "../auth";
 import ResultCard from "../components/ResultCard";
 import './SearchPage.css'
-import spotifyLogo from '../assets/spotifyPNG.png'
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function SearchPage() {
     const [query, setQuery] = useState('');
@@ -36,10 +37,7 @@ export default function SearchPage() {
     if (!isLoggedIn) {
         return (
             <div className="landing-page">
-                <div className="landing__header">
-                    <img src={spotifyLogo} alt="" />
-                    <p>Created with Spotify's API</p>
-                </div>
+                <Navbar />
                 <div className="landing">
                     <p>Connect to <span>Spotify</span> to start searching.</p>
                     <button className="login__btn" onClick={loginWithSpotify}>Login with Spotify</button>
@@ -55,9 +53,7 @@ export default function SearchPage() {
                             }
                         }}>Continue as Guest</button>
                 </div>
-                <div className="landing__footer">
-                    <p>© Spotify 2026</p>
-                </div>
+                <Footer />
             </div>
         );
     }
@@ -66,6 +62,7 @@ export default function SearchPage() {
         <div style={{ maxWidth: 720, margin: '0 auto', padding: '2rem 1rem' }}>
 
             {/* Search Bar */}
+            <Navbar />
             <form onSubmit={handleSearch} style={{ display: 'flex', gap: 8, marginBottom: '2rem' }}>
                 <input 
                     value={query}
@@ -104,7 +101,7 @@ export default function SearchPage() {
                     ))}
                 </div>
             )}
-
+            <Footer />
         </div>
     );
 }
