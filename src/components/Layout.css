@@ -44,9 +44,14 @@
 }
 
 /* MIDDLE BODY */
+.layout__body {
+    flex: 1;
+}
+
 .layout__content {
     max-width: 720px;
     margin: 0 auto;
+    padding: 2rem 1rem;
 }
 
 /* FOOTER */
