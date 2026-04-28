@@ -16,9 +16,7 @@ export default function Layout({ children }) {
     return (
         <div className="layout">
             <header className='layout__header'>
-                <div onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
-                    <img src={spotifyLogo} alt="" />
-                </div>
+                <img src={spotifyLogo} alt="" />
                 <p>Created with Spotify's API</p>
                 {isLoggedIn ? <button className="logout__btn" onClick={logoutUser}>Logout</button> : null}
             </header>
